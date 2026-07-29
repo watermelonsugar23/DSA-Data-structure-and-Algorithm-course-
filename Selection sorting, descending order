@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+
+void selection_sort_desc(int arr[], int n)
+{
+
+    for(int blue = n-1; blue >= 1; blue--)
+    {
+        int minIndex = 0;
+        int minValue = arr[0];
+        for(int black = 0; black <= blue; black++)
+        {
+            if(arr[black] < minValue)
+            {
+                minValue = arr[black];
+                minIndex = black;
+            }
+        }
+        swap(arr[minIndex], arr[blue]);
+    }
+
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[1000];
+    for(int i = 0; i < n; i++)
+    {
+        cin >> arr[i];  
+    }
+    selection_sort_desc(arr, n);
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+
+    cout << endl;
+
+}
