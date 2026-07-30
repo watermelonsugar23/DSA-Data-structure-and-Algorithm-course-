@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+void bubble_sort_desc(int arr[], int n)
+{
+
+    for (int blue = n - 1; blue >= 1; blue--)
+    {
+        for (int black = 0; black < blue; black++)
+        {
+            // detect wrong order--> large number should be in front of small number
+            if (arr[black] < arr[black + 1])
+            {
+                swap(arr[black], arr[black + 1]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[1000];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    bubble_sort_frequency_asc(arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+    
+    cout << endl;
+}
