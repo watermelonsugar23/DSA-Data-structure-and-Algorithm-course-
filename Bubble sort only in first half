@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+// sort only half part(1st half) of the array
+void bubble_sort_first_half(int arr[], int n)
+{
+    // Sort only the first half of the array
+    for (int blue = n/2-1; blue >= 1; blue--)
+    {
+        for (int black = 0; black < blue; black++)
+        {
+            // detect wrong order
+            if (arr[black] > arr[black + 1])
+            {
+                swap(arr[black], arr[black + 1]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[1000];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    bubble_sort_frequency_asc(arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+    
+    cout << endl;
+}
