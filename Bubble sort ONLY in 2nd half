@@ -1,0 +1,34 @@
+void bubble_sort_second_half(int arr[], int n)
+{
+    // Sort only the second half of the array
+    for (int blue = n-1; blue >= n/2; blue--)
+    {
+        for (int black = n/2; black < blue; black++)
+        {
+            // detect wrong order
+            if (arr[black] > arr[black + 1])
+            {
+                swap(arr[black], arr[black + 1]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    int arr[1000];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    bubble_sort_frequency_asc(arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << "  ";
+    }
+    
+    cout << endl;
+}
