@@ -1,8 +1,7 @@
 #include<iostream>
 using namespace std;
 
-
-void selection_sort_desc(int arr[], int n)
+void selectionSort_desc(int arr[], int n)
 {
 
     for(int blue = n-1; blue >= 1; blue--)
@@ -29,9 +28,9 @@ int main()
     int arr[1000];
     for(int i = 0; i < n; i++)
     {
-        cin >> arr[i];  
+        cin >> arr[i];
     }
-    selection_sort_desc(arr, n);
+    selectionSort_desc(arr, n);
 
     for(int i = 0; i < n; i++)
     {
