@@ -27,7 +27,7 @@ int main()
     {
         cin >> arr[i];
     }
-    bubble_sort_frequency_asc(arr, n);
+    bubble_sort_first_half(arr, n);
 
     for (int i = 0; i < n; i++)
     {
