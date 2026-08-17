@@ -1,0 +1,24 @@
+int square_root(int n)
+{
+    int left = 0;
+    int right = n;
+    while (left <= right)
+    {
+        int mid = (left + right) / 2;
+        int square = mid * mid;
+        if (square == n)
+        {
+            return mid; // Found exact square root
+        }
+        else if (square < n)
+        {
+            left = mid + 1; // Move to the right half
+        }
+        else
+        {
+            right = mid - 1; // Move to the left half
+        }
+    }
+    return -1; // Not a perfect square
+    
+}
