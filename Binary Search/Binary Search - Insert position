@@ -20,3 +20,11 @@ int find_insert_position(int arr[], int size, int target)
     // 'left' naturally points to the correct insert position
     return left; 
 }
+int main()
+{
+    int arr[] = {11, 22, 33, 44, 55, 66, 77, 88, 99};
+    int n = 9;
+    int target = 54;
+    int insert_pos = find_insert_position(arr, n, target);
+    cout << "Insert position of " << target << " is: " << insert_pos << endl;
+}
