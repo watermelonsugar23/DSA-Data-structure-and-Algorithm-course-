@@ -1,1 +1,18 @@
 
+void find_occurrences(int arr[], int size, int target)
+{
+    int first = first_occurrence(arr, size, target);
+    int last = last_occurrence(arr, size, target);
+    int count = 0;
+    if(first != -1 && last != -1)
+    {
+        // Remind this formula: How many numbers are between 1 to 10? formula= 10-1+1
+
+        count = last - first + 1;
+        cout << target << " found " << count << " times in the array." << endl;
+    }
+    else
+    {
+        cout << target << " not found in the array." << endl;
+    }
+}
