@@ -1,1 +1,20 @@
-
+void deleteLast()
+{
+    if(head == NULL)
+        return;
+    if(head->next == NULL)
+    {
+        delete head;
+        head = NULL;
+        return;
+    }
+    struct Node* traveller = head;
+    struct Node* follower = NULL;
+    while(traveller->next != NULL)
+    {
+        follower = traveller;
+        traveller = traveller->next;
+    }
+    delete traveller;
+    follower->next = NULL;
+}
