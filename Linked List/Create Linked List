@@ -1,1 +1,16 @@
+#include<iostream>
+using namespace std;
 
+struct Node
+{
+	string name;
+	struct Node* next;
+};
+
+struct Node* createNode(string n)
+{
+	struct Node* newNode = new Node();
+	newNode->name = n;
+	newNode->next= NULL;
+	return newNode;
+}
