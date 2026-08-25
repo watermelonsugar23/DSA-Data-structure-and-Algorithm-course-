@@ -1,1 +1,12 @@
+void printLL()
+{
+	struct Node* traveller;
+	traveller = head;
+	while(traveller!=NULL)
+	{
+		cout<<" "<<traveller->name;
+		traveller = traveller->next;
 
+	}
+
+}
