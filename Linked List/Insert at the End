@@ -1,1 +1,16 @@
-
+void insertAtEnd(int x)
+{
+    struct Node* newNode = createNode(x);
+    if(head==NULL)
+    {
+        head = newNode;
+        return;
+    }
+    struct Node* traveller;
+    traveller = head;
+    while(traveller->next!=NULL)
+    {
+        traveller = traveller->next;
+    }
+    traveller->next = newNode;
+}
