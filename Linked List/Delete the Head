@@ -1,1 +1,8 @@
-
+void deleteHead()
+{
+    if(head == NULL)
+        return;
+    struct Node* temp = head;
+    head = head->next;
+    delete temp;
+}
