@@ -1,1 +1,11 @@
-
+int countNode()
+{
+	struct Node* traveller;
+	traveller = head;
+	int cnt = 0;
+	while(traveller!=NULL)
+	{
+		cnt++;
+	}	traveller = traveller->next;
+	return cnt;
+}
