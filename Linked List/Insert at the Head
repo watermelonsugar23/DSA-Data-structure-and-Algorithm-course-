@@ -1,1 +1,6 @@
-
+void insertAtBeginning(int x)
+{
+    struct Node* newNode = createNode(x);
+    newNode->next = head;
+    head = newNode;
+}
