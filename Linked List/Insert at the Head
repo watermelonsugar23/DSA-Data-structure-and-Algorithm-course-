@@ -1,6 +1,24 @@
-void insertAtBeginning(int x)
+
+void addAt TheBeginning() 
 {
-    struct Node* newNode = createNode(x);
-    newNode->next = head;
-    head = newNode;
+
+// Making the new node
+
+struct Node* newNode malloc(sizeof (struct Node));
+    
+   printf("Enter the value of the new node\n");
+   scanf("%d", &newNode->value);
+   newNode->nextNode=NULL;
+     
+if (head= NULL) {       //if the list is empty
+   
+   head = newNode;
+
+}
+ else{        //if there is one or more nodes in the list
+ 
+newNode->nextNode=head;
+ head = newNode;
+ 
+ }
 }
