@@ -1,0 +1,21 @@
+#include<iostream>
+#include<stack>
+#include<string>
+using namespace std;
+
+//Reverse a word using stack
+
+string  reverseWord(string s)
+{
+	stack<char> st;
+
+	for(char ch:s)
+	{
+		st.push(ch);
+	}
+
+	string ns;
+	while(st.empty()==false)
+	{
+		char ch =st.top();
+		st.pop();
