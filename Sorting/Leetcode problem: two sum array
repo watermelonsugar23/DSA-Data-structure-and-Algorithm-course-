@@ -1,0 +1,40 @@
+------------------------//find indices whose sum equals the given target value---------------------
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Returns a vector containing the two indices if found
+
+vector<int> findIndex(const vector<int>& arr, int target) {
+    int n = arr.size();
+    for (int end = n - 1; end >= 1; end--) {
+        for (int start = 0; start < end; start++) {
+            if (arr[start] + arr[end] == target) {
+                return {start, end}; // Returns a vector with 2 elements
+            }
+        }
+    }
+    return {}; // Return an empty vector if no pair matches target
+}
+
+int main() {
+    int n, target;
+    cin >> n >> target;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    vector<int> result = findIndex(arr, target);
+
+    if (!result.empty()) {
+        cout << "Indices: " << result[0] << " " << result[1] << endl;
+    } else {
+        cout << "No pair found matching target." << endl;
+    }
+
+    return 0;
+}
