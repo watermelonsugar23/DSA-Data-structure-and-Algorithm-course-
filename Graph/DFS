@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Helper function to add an undirected edge
+void addEdge(vector<vector<int>>& adj, int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+
+// Helper recursive function for DFS
+void dfsHelper(const vector<vector<int>>& adj, int current, vector<bool>& visited) {
+    // Mark the current node as visited and print it
+    visited[current] = true;
+    cout << current << " ";
+
+    // Recur for all adjacent unvisited neighbors
+    for (int neighbor : adj[current]) {
+        if (!visited[neighbor]) {
+            dfsHelper(adj, neighbor, visited);
+        }
+    }
+}
+
+// Main DFS function called by the user
+void dfs(const vector<vector<int>>& adj, int start) {
+    int V = adj.size();
+
+    // Check for valid start vertex
+    if (start < 0 || start >= V) {
+        cout << "Invalid start vertex!" << endl;
+        return;
+    }
+
+    // Keep track of visited vertices
+    vector<bool> visited(V, false);
+
+    cout << "DFS Traversal starting from vertex " << start << ": ";
+    
+    // Call the recursive helper function
+    dfsHelper(adj, start, visited);
+
+    cout << endl;
+}
+
+int main() {
+    int V = 6;
+    vector<vector<int>> adj(V);
+
+    // Build the graph with all 7 edges from the edge list
+    addEdge(adj, 0, 1);
+    addEdge(adj, 0, 3);
+    addEdge(adj, 1, 2);
+    addEdge(adj, 1, 4);
+    addEdge(adj, 2, 5);
+    addEdge(adj, 3, 4);
+    addEdge(adj, 4, 5);
+
+    // Perform DFS starting from vertex 0
+    dfs(adj, 0);
+
+    return 0;
+}
