@@ -1,0 +1,33 @@
+void shortestDistance(vector < vector < int>> &adj_list, int src, int num_of_vertex)
+{
+	vector<bool> visited(num_of_vertex,false);
+	queue<int>p;
+	vector<int>distance(num_of_vertex, INT_MAX);
+
+	p.push(src);
+	visited[src] = true;
+	distance[src] = 0;
+
+	while(p.empty() == false)
+	{
+		int currentNode = p.front();
+		p.pop();
+
+
+		for(int neighbor : adj_list[currentNode])
+		{
+			if(visited[neighbor] == false)
+			{
+				p.push(neighbor);
+				visited[neighbor] = true;
+				distance[neighbor] = distance[currentNode] + 1;
+			}
+		}
+
+	}
+	for(int i = 0; i < num_of_vertex ; i++)
+	{
+		cout<<" vertex : "<< i <<".   shortest Disrance from "<<src<<" is = "<< distance[i]<<" "<<endl;
+	}
+
+}
