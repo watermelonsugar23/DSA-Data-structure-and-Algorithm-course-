@@ -1,0 +1,53 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+//Implement Queue using Linked List
+
+//Linked List
+
+list<int> l;
+
+void enqueue(int v)
+{
+	l.push_back(v);
+}
+void dequeue()
+{
+	if(l.empty())
+	{
+		cout<<"queue underflow"<<endl;
+		return;
+	}
+	l.pop_front();
+}
+
+int front()
+{
+	if(l.empty())
+	{
+		cout<<"queue is empty"<<endl;
+		return -1;
+	}
+	return l.front();
+}
+void printQueue()
+{
+	for(const auto &element: l)
+	{
+		cout<<" "<<element<<endl;
+	}
+}
+int main()
+
+{
+
+
+	enqueue(11);
+	enqueue(22);
+	enqueue(33);
+	enqueue(44);
+	cout<<"Front of the queue : "<<front()<<endl;
+	dequeue();
+	printQueue();
+}
