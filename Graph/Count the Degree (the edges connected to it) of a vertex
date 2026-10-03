@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to add an undirected edge
+void addEdge(vector<vector<int>>& adj, int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+
+// Function to calculate and return the degree of a vertex
+int countDegree(const vector<vector<int>>& adj, int vertex) {
+    // Check if the vertex exists in the graph
+    if (vertex < 0 || vertex >= adj.size()) {
+        cout << "Invalid vertex!" << endl;
+        return -1;
+    }
+    
+    // The degree is simply the number of neighbors stored in adj[vertex]
+    return adj[vertex].size();
+}
+
+int main() {
+    int V = 6;
+    vector<vector<int>> adj(V);
+
+    // Build the graph using all 7 edges from the edge list
+    addEdge(adj, 0, 1);
+    addEdge(adj, 0, 3);
+    addEdge(adj, 1, 2);
+    addEdge(adj, 1, 4);
+    addEdge(adj, 2, 5);
+    addEdge(adj, 3, 4);
+    addEdge(adj, 4, 5);
+
+    // Testing countDegree for different vertices
+    cout << "Degree of vertex 0: " << countDegree(adj, 0) << endl; // Expected: 2
+    cout << "Degree of vertex 1: " << countDegree(adj, 1) << endl; // Expected: 3
+    cout << "Degree of vertex 4: " << countDegree(adj, 4) << endl; // Expected: 3
+    cout << "Degree of vertex 5: " << countDegree(adj, 5) << endl; // Expected: 2
+
+    return 0;
+}
