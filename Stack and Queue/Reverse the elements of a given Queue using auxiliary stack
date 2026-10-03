@@ -1,0 +1,52 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+
+using namespace std;
+
+// Function to reverse a queue using an auxiliary stack
+void reverseQueue(queue<int>& q) {
+    stack<int> s;
+
+    // Step 1: Transfer elements from queue to stack
+    while (!q.empty()) {
+        s.push(q.front());
+        q.pop();
+    }
+
+    // Step 2: Transfer elements from stack back to queue
+    while (!s.empty()) {
+        q.push(s.top());
+        s.pop();
+    }
+}
+
+// Helper function to print queue contents
+void printQueue(queue<int> q) {
+    cout << "[Front] ";
+    while (!q.empty()) {
+        cout << q.front();
+        q.pop();
+        if (!q.empty()) cout << ", ";
+    }
+    cout << " [Rear]\n";
+}
+
+int main() {
+    queue<int> q;
+
+    // Populate queue: [Front] 1, 2, 3, 4, 5 [Rear]
+    for (int i = 1; i <= 5; ++i) {
+        q.push(i);
+    }
+
+    cout << "Original Queue:\n";
+    printQueue(q);
+
+    reverseQueue(q);
+
+    cout << "\nReversed Queue:\n";
+    printQueue(q);
+
+    return 0;
+}
