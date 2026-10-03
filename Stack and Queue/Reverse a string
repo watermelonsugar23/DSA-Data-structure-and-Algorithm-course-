@@ -3,23 +3,23 @@
 #include<string>
 using namespace std;
 
-//Reverse a word using stack
+//Reverse a word using a stack
 
 string  reverseWord(string s)
 {
-	stack<char> st;
+	stack<char> st;        //Creates an empty stack named st that stores individual characters (char)
 
-	for(char ch:s)
+	for(char ch:s)          //A range-based for loop that iterates through each character ch in the input string s from left to right
 	{
-		st.push(ch);
+		st.push(ch);         //Pushes the current character ch onto the top of the stack. Because of LIFO order, the last character of s ends up at the top of the stack
 	}
 
-	string ns;
+	string ns;                 //Declares an empty string ns (new string) to hold the reversed result
 	while(st.empty()==false)
 	{
-		char ch =st.top();
-		st.pop();
-		ns=ns+ch;
+		char ch =st.top();      //Retrieves the top character from the stack (which is currently the last character pushed).
+		st.pop();                 //Removes the top character from the stack
+		ns=ns+ch;                   //Appends the retrieved character ch to the end of ns
 	}
 	return ns;
 }
