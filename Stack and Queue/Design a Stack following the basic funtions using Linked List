@@ -1,0 +1,57 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+//Implement stack using ll
+
+list<int> l;
+
+//Push
+void push(int x)
+{
+	l.push_front(x);
+}
+
+//Pop
+void pop()
+{
+	if(l.empty())
+	{
+		cout<<"STACK Underflow!"<<endl;
+		return;
+	}
+	l.pop_front();
+}
+//peek
+int peek()
+{
+	if(l.empty())
+	{
+		cout<<"nothing to return"<<endl;
+		return -1;
+	}
+
+	return l.front();
+}
+int currentSize()
+{
+return l.size();
+}
+
+void printStack()
+{
+	for(const auto & element: l )
+	{
+		cout<<element<<endl;
+	}
+}
+
+int main()
+{
+push(11);
+push(22);
+push(33);
+cout<<"peek : " <<peek()<<endl;
+pop();
+printStack();
+}
