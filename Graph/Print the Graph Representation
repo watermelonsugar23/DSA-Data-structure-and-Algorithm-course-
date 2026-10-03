@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to add an undirected edge
+void addEdge(vector<vector<int>>& adj, int u, int v) {
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+}
+
+// Function to print the complete adjacency list representation
+void printList(const vector<vector<int>>& adj) {
+    cout << "Graph Adjacency List Representation:" << endl;
+    
+    for (size_t i = 0; i < adj.size(); ++i) {
+        cout << "Vertex " << i << " -> ";
+        
+        if (adj[i].empty()) {
+            cout << "None";
+        } else {
+            for (size_t j = 0; j < adj[i].size(); ++j) {
+                cout << adj[i][j];
+                // Add arrow separator between neighbors, but skip after the last one
+                if (j + 1 < adj[i].size()) {
+                    cout << " -> ";
+                }
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int V = 6;
+    vector<vector<int>> adj(V);
+
+    // Build the graph using all 7 edges from the edge list
+    addEdge(adj, 0, 1);
+    addEdge(adj, 0, 3);
+    addEdge(adj, 1, 2);
+    addEdge(adj, 1, 4);
+    addEdge(adj, 2, 5);
+    addEdge(adj, 3, 4);
+    addEdge(adj, 4, 5);
+
+    // Call printList to display the complete graph structure
+    printList(adj);
+
+    return 0;
+}
