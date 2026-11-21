@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+void countingSortDescending(vector<int>& arr) {
+    if (arr.empty()) return;
+
+    // 1. Find the maximum element
+    int maxVal = *max_element(arr.begin(), arr.end());
+
+    // 2. Initialize count array with zeros
+    vector<int> count(maxVal + 1, 0);
+
+    // 3. Store the frequency of each element
+    for (int num : arr) {
+        count[num]++;
+    }
+
+    // 4. Overwrite the original array in descending order (reverse loop)
+    int index = 0;
+    for (int i = maxVal; i >= 0; i--) {
+        while (count[i] > 0) {
+            arr[index++] = i;
+            count[i]--;
+        }
+    }
+}
+
+int main() {
+    vector<int> arr = {4, 2, 2, 8, 3, 3, 1};
+    
+    countingSortDescending(arr);
+    
+    cout << "Descending: ";
+    for (int num : arr) cout << num << " ";
+    return 0;
+}
